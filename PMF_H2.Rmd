@@ -174,7 +174,7 @@ scale_y_continuous(labels = scales::percent)
 ```
 Based on the table of the Portfolio Monthly returns, it can be interpreted that with the portfolio having equal weight assets, the company accomplished positive returns. The returns have increased from 2016 to 2022. Therefore, the portfolio tactic was successful, the portfolio achieved to deliver returns based on the stated objectives of the investment strategy, as well as the risk tolerance of the type of investors targeted by the portfolio.   
 
-## Cumulative Returns
+## Cumulative Returns 
 
 ```{r,echo=FALSE, warning=FALSE}
 # Cumulative returns.
