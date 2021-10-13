@@ -119,6 +119,13 @@ labs(x = "SP500 Return", y = "Asset Return",
 title = "Relationship between asset return and market") +
 theme(legend.position = "none", legend.title = element_blank())
 ```
+NKE,MCD and MSFT are organized in a way that the slope is decreasing.The black line illustrates a stock with a slope (β) of one,which is used to visualize when a stock is riskier or less risky than the market. In order to compare the asset return against the SP500,we graphed on the x-axis  the SP500 return and on the y-axis the asset return.
+
+MCD has the smallest R-squared, meaning the SP500 is not considered a relevant risk factor for the stock performance against MSFT and NKE.Additionally, the returns in the plot are disperse from the linear regression line for the stock which confirms there is less relationship between SP500 and MCD returns. 
+
+On the other hand, MSFT,having the biggest R-Squared of all, has more concentrated the points(returns) from the scatter plot on the linear regression of the stock. This suggests that the if SP500 returns are low, MSFT returns are low as well.Stock returns are positively related. The β is slightly smaller than one, yet they are very close. This can be seen in the plot were both lines are almost together. 
+
+Considering the analysis above, if we anticipate a fall in the stock market the best action would be to rearrange our portfolio investment to include more stocks of MCD and less stocks from MSFT and NKE. By doing this we could expect higher returns, since oru portfolio will be doing better than the SP500.
 
 ```{r, echo=FALSE, warning=FALSE}
 R_stocks_market %>%
@@ -148,6 +155,9 @@ x = "Risk", y = "Return") + theme_tq() +
 theme(legend.position = "none", legend.title = element_blank())
 R_stocks_market_stats
 ```
+The red line has 45 degrees to visualize the return per unit. If the asset is located above the red line means a return per unit of risk greater than one, which is the case of MSFT. On the other side, we have MCD almost above the line with 0.978 returns per unit of risk ans NKE located below the line.
+
+The most attractive stock is MSFT due to the high returns and low risks the stock presents in the graph.Even though, all stocks present a positive numerical value per unit of risk, MSFT looks more attractive for being on the top corner of the graph(representing a high return for a very low risk). The least attractive stock is NKE, per it is the one with the lowest return and the higher risk (located in the low corner in the right side).
 
 ## Portfolio Creation with Equal Weigths
 
@@ -165,7 +175,7 @@ portfolio_returns_monthly %>%
 ggplot(aes(x = date, y = Ra)) +
 geom_bar(stat = "identity", fill = palette_light()[[1]]) +
 labs(title = "Portfolio monthly returns.",
-subtitle = "10% in each one of the 10 assets.",
+subtitle = "33% in each one of the 3 assets.",
 caption = "Shows an above-zero trend meaning positive returns.",
 x = "", y = "Monthly Returns") +
 geom_smooth(method = "lm", color = "red") +
@@ -189,7 +199,7 @@ portfolio_growth_monthly %>%
 ggplot(aes(x = date, y = investment.growth)) +
 geom_line(size = 2, color = palette_light()[[1]]) +
 labs(title = "Portfolio growth of $10,000.",
-subtitle = "10% in each one of the 10 assets.",
+subtitle = "33% in each one of the 3 assets.",
 caption = "Now we can really visualize performance!",
 x = "", y = "Portfolio Value") +
 geom_smooth(method = "loess") +
